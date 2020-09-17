@@ -1,3 +1,15 @@
+# Projeto 1 - Processamento Digital de Imagens
+#
+# Implementação da técnica de preenchimento de borda pelo valor do pixel mais próximo
+#
+# Grupo:
+# Agustin Gabriel Amaral Castillo
+# Jorge Vinicius Gonçalves
+# Thiago de Moraes Teixeira
+# Victoria de Martini de Souza
+
+
+# Bibliotecas
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -24,7 +36,7 @@ for row in range(num_rows):
     for col in range(num_cols):   
         img_border[row+10, col+10] = img[row, col]
 
-print(num_rows, num_cols)
+
 # Varre a nova imagem alterando os valores dos pixels da borda, para o valor do pixel mais proximo da imagem original
 for row in range(num_rows+20):
 	for col in range(num_cols+20):
@@ -49,7 +61,15 @@ for row in range(num_rows+20):
 				img_border[row, col] = img[row-10, num_cols-1]
 
 
-# Compare two images
+# Mostra info das imagens apos o procedimento
+print('Imagem original')
+image_info(img)
+print()
+print('Imagem com borda')
+image_info(img_border)
+
+
+# Compara as duas imagens lado a lado
 plt.subplot(1, 2, 1)
 plt.imshow(img, 'gray')
 plt.subplot(1, 2, 2)
