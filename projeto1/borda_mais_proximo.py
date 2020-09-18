@@ -43,21 +43,21 @@ for row in range(num_rows+20):
 		if row<=10:
 			if col<=10:
 				img_border[row, col] = img[0, 0]
-			elif col>=num_cols-1:
+			elif col>=num_cols+9:
 				img_border[row, col] = img[0, num_cols-1]
 			else:
 				img_border[row, col] = img[0, col-10]
-		elif row>=num_rows-1:
+		elif row>=num_rows+9:
 			if col<=10:
 				img_border[row, col] = img[num_rows-1, 0]
-			elif col>=num_cols-1:
+			elif col>=num_cols+9:
 				img_border[row, col] = img[num_rows-1, num_cols-1]	
 			else:
 				img_border[row, col] = img[num_rows-1, col-10]
 		else:
 			if col<10:
 				img_border[row, col] = img[row-10, 0]
-			if col>num_cols-1:
+			elif col>num_cols+9:
 				img_border[row, col] = img[row-10, num_cols-1]
 
 
