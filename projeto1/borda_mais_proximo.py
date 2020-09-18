@@ -24,7 +24,7 @@ def image_info(img):
 
 
 # Read img 
-img = plt.imread('pacman.tiff')
+img = plt.imread('moon.tiff')
 num_rows, num_cols = img.shape
 
 
