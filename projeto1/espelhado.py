@@ -46,27 +46,27 @@ for linha_atual in range(tamanho_borda, num_rows+tamanho_borda):
 
 	for pixel in range(1, tamanho_borda+1):
 		# Direção Horizontal esquerda e direita da imagem
-		img_border[linha_atual][tamanho_borda-pixel] 										= img[linha_atual-tamanho_borda][pixel]
-		img_border[linha_atual][num_cols+(tamanho_borda-1)+pixel] 							= img[linha_atual-tamanho_borda][num_cols-1-pixel]
+		img_border[linha_atual][tamanho_borda-pixel] 							= img[linha_atual-tamanho_borda][pixel]
+		img_border[linha_atual][num_cols+(tamanho_borda-1)+pixel] 					= img[linha_atual-tamanho_borda][num_cols-1-pixel]
 
 		# Direção vertical cima e baixo da imagem 
-		img_border[tamanho_borda-pixel][linha_atual] 										= img[pixel][linha_atual-tamanho_borda]
-		img_border[num_rows+(tamanho_borda-1)+pixel][linha_atual] 							= img[num_rows-1-pixel][linha_atual-tamanho_borda]
+		img_border[tamanho_borda-pixel][linha_atual] 							= img[pixel][linha_atual-tamanho_borda]
+		img_border[num_rows+(tamanho_borda-1)+pixel][linha_atual] 					= img[num_rows-1-pixel][linha_atual-tamanho_borda]
 
 		if linha_atual == tamanho_borda:
 			# Diagonal superior esquerda
-			img_border[linha_atual-pixel][tamanho_borda-pixel] 								= img[pixel][pixel]
+			img_border[linha_atual-pixel][tamanho_borda-pixel] 					= img[pixel][pixel]
 
 			# Diagonal superior direita
-			img_border[linha_atual-pixel][num_cols+(tamanho_borda-1)+pixel] 				= img[pixel][num_cols-1-pixel]			
+			img_border[linha_atual-pixel][num_cols+(tamanho_borda-1)+pixel] 			= img[pixel][num_cols-1-pixel]			
 
 			if diagonal_pixels >= 2:
 				for line in range(1, diagonal_pixels):
 					# Linhas para esquerda da diagonal superior esquerda  
-					img_border[linha_atual-pixel][tamanho_borda-pixel-line]					= img[pixel][pixel+line]
+					img_border[linha_atual-pixel][tamanho_borda-pixel-line]			= img[pixel][pixel+line]
 
 					# Linhas para cima da diagonal superior esquerda
-					img_border[linha_atual-pixel-line][tamanho_borda-pixel]					= img[pixel+line][pixel]
+					img_border[linha_atual-pixel-line][tamanho_borda-pixel]			= img[pixel+line][pixel]
 
 					# Linhas para direita da diagonal superior direita
 					img_border[linha_atual-pixel][num_cols+(tamanho_borda-1)+pixel+line]	= img[pixel][num_rows-1-pixel-line]
@@ -76,18 +76,18 @@ for linha_atual in range(tamanho_borda, num_rows+tamanho_borda):
 
 		if linha_atual == num_rows+(tamanho_borda-1):
 			# Diagonal inferior esquerda
-			img_border[linha_atual+pixel][tamanho_borda-pixel] 								= img[num_rows-1-pixel][pixel]
+			img_border[linha_atual+pixel][tamanho_borda-pixel] 					= img[num_rows-1-pixel][pixel]
 			
 			# Diagonal inferior direita
-			img_border[linha_atual+pixel][num_cols+(tamanho_borda-1)+pixel] 				= img[num_rows-1-pixel][num_cols-1-pixel]			
+			img_border[linha_atual+pixel][num_cols+(tamanho_borda-1)+pixel] 			= img[num_rows-1-pixel][num_cols-1-pixel]			
 
 			if diagonal_pixels >= 2:
 				for line in range(1, diagonal_pixels):
 					# Linhas para esquerda da diagonal inferior esquerda
-					img_border[linha_atual+pixel][tamanho_borda-pixel-line]					= img[num_rows-1-pixel][pixel+line]
+					img_border[linha_atual+pixel][tamanho_borda-pixel-line]			= img[num_rows-1-pixel][pixel+line]
 
 					# Linhas para baixo da diagonal inferior esquerda
-					img_border[linha_atual+pixel+line][tamanho_borda-pixel]					= img[num_rows-1-pixel-line][pixel]
+					img_border[linha_atual+pixel+line][tamanho_borda-pixel]			= img[num_rows-1-pixel-line][pixel]
 
 					# Linhas para a direita da diagonal inferior direita
 					img_border[linha_atual+pixel][num_cols+(tamanho_borda-1)+pixel+line]	= img[num_rows-1-pixel][num_cols-1-pixel-line]
