@@ -20,45 +20,55 @@ def image_info(img):
           f'Tipo de dado: {img.dtype}\n',
           f'Menor valor: {img.min()}\n',
           f'Maior valor: {img.max()}\n',
-          f'Valores únicos: {len(np.unique(img))}', sep='')
+          f'Valores únicos: {len(np.unique(img))}', sep=''
+          )
 
 
-# Read img 
-img = plt.imread('moon.tiff')
-num_rows, num_cols = img.shape
+# Read original image 
+img = plt.imread('cameraman.tiff')
+num_rows, num_cols= img.shape
 
+# Define o tamanho da borda em pixels
+tamanho_borda = 10
 
-# Cria a imagem com borda preta
-# adicionando +20px em linhas/colunas -> 10px para cada lado da imagem
+# Cria a imagem IMG_BORDER com borda preta (para ser preenchida)
+# adicionando 2x tamanho da borda em linhas/colunas -> tamanho/2 para cada lado da imagem
 # e copiando o valor dos pixels da imagem original para seus respectivos lugares no centro da nova imagem
-img_border = np.zeros((num_rows+20, num_cols+20), dtype=img.dtype)
+img_border = np.zeros((num_rows+(tamanho_borda*2), num_cols+(tamanho_borda*2)), dtype=img.dtype)
 for row in range(num_rows):
     for col in range(num_cols):   
-        img_border[row+10, col+10] = img[row, col]
+        img_border[row+(tamanho_borda), col+(tamanho_borda)] = img[row, col]
 
 
 # Varre a nova imagem alterando os valores dos pixels da borda, para o valor do pixel mais proximo da imagem original
-for row in range(num_rows+20):
-	for col in range(num_cols+20):
-		if row<=10:
-			if col<=10:
+for row in range(num_rows+(tamanho_borda*2)):
+	for col in range(num_cols+(tamanho_borda*2)):
+		if row<=tamanho_borda:
+			if col<=tamanho_borda:
 				img_border[row, col] = img[0, 0]
-			elif col>=num_cols+9:
+
+			elif col>=num_cols+(tamanho_borda-1):
 				img_border[row, col] = img[0, num_cols-1]
+
 			else:
-				img_border[row, col] = img[0, col-10]
-		elif row>=num_rows+9:
-			if col<=10:
+				img_border[row, col] = img[0, col-tamanho_borda]
+
+		elif row>=num_rows+(tamanho_borda-1):
+			if col<=tamanho_borda:
 				img_border[row, col] = img[num_rows-1, 0]
-			elif col>=num_cols+9:
+
+			elif col>=num_cols+(tamanho_borda-1):
 				img_border[row, col] = img[num_rows-1, num_cols-1]	
+
 			else:
-				img_border[row, col] = img[num_rows-1, col-10]
+				img_border[row, col] = img[num_rows-1, col-tamanho_borda]
+
 		else:
-			if col<10:
-				img_border[row, col] = img[row-10, 0]
-			elif col>num_cols+9:
-				img_border[row, col] = img[row-10, num_cols-1]
+			if col<tamanho_borda:
+				img_border[row, col] = img[row-tamanho_borda, 0]
+
+			elif col>num_cols+(tamanho_borda-1):
+				img_border[row, col] = img[row-tamanho_borda, num_cols-1]
 
 
 # Mostra info das imagens apos o procedimento
