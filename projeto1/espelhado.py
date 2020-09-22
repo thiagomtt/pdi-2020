@@ -41,7 +41,6 @@ for row in range(num_rows):
 
 
 for linha_atual in range(tamanho_borda, num_rows+tamanho_borda):
-	print(linha_atual)
 	diagonal_pixels = tamanho_borda
 
 	for pixel in range(1, tamanho_borda+1):
