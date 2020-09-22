@@ -25,7 +25,7 @@ def image_info(img):
 
 
 # Read original image 
-img = plt.imread('pacman.tiff')
+img = plt.imread('images/pacman.tiff')
 num_rows, num_cols = img.shape
 
 # Define o tamanho da borda em pixels
