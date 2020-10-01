@@ -5,8 +5,6 @@
 <br>
 
 Utilizando os parâmetros: ![d0](https://latex.codecogs.com/gif.latex?D_%7B0%7D) e ![n](https://latex.codecogs.com/gif.latex?n)	
-
-<br>
 temos:
 
 ![d](https://latex.codecogs.com/gif.latex?D%28u%2Cv%29%3D%20%5Csqrt%7Bu%5E%7B2%7D&plus;v%5E%7B2%7D%7D)
