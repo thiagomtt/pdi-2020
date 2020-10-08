@@ -51,13 +51,13 @@ def high_pass_butterwoorth_filter(img, d0, n):
 	for row in range(num_rows):
 		for col in range(num_cols):
 			distance = np.sqrt(freq_r[row]**2 + freq_c[col]**2)
-			high_pass_butterwoorth_filter[row, col] = 1/(1 + ((d0/distance)**(2*n)))
+			high_pass_butterwoorth_filter[row, col] = 1/(1 + (d0/(distance+1e-10)**(2*n)))
 
 	return high_pass_butterwoorth_filter
 
-# passa-alta ideal -> d0=0.1 , n=100 
-# passa-alta gaussiano -> d0=0.02 , n=1.5
-highpass_filter = high_pass_butterwoorth_filter(img_padded, 0.02, 1.5)
+# passa-alta laplaciano -> d0=2 , n=1 
+# passa-alta gaussiano -> d0=0.01 , n=1
+highpass_filter = high_pass_butterwoorth_filter(img_padded, 0.01, 1)
 
 # Plota o filtro para nivel de comparação 
 plt.subplot(1, 3, 2)

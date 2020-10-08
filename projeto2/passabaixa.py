@@ -55,9 +55,9 @@ def low_pass_butterwoorth_filter(img, d0, n):
 
 	return low_pass_butterwoorth_filter
 
-# passa-baixa ideal -> d0=0.1 , n=100 
-# passa-baixa gaussiano -> d0=0.02 , n=1.5
-lowpass_filter = low_pass_butterwoorth_filter(img_padded, 0.02, 1.5)
+# passa-baixa ideal -> d0=0.1 , n=50 
+# passa-baixa gaussiano -> d0=0.1 , n=2
+lowpass_filter = low_pass_butterwoorth_filter(img_padded, 0.1, 50)
 
 # Plota o filtro para nivel de comparação 
 plt.subplot(1, 3, 2)
