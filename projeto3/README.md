@@ -4,7 +4,7 @@
 
 * Erosão:
 
-![erosao](https://imagizer.imageshack.com/img923/946/Mh7c4O.png)
+![erosao](https://imagizer.imageshack.com/img922/6964/iJBvaq.png)
 
 * Dilatação?
 
