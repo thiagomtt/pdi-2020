@@ -105,12 +105,11 @@ def fechamento(img, elem_est):
 # Função da transformada top-hat
 def top_hat(img, elem_est):
 
-	# Imagem resultante
-	img_res = np.zeros_like(img)
+	img_opened = np.zeros_like(img)
 
 	# Transformada Top-Hat - aplica-se a abertura e logo após subtrai a imagem original da 'imagem aberta'
-	img_res = abertura(img, elem_est)
-	img_top_hat = img - img_res
+	img_opened = abertura(img, elem_est)
+	img_top_hat = img - img_opened
 
 	return img_top_hat
 
@@ -134,16 +133,22 @@ def main():
 	# Plota todos os resultados lado a lado 
 	plt.subplot(1, 6, 1)
 	plt.imshow(img, 'gray')
+	plt.xlabel('Original')
 	plt.subplot(1, 6, 2)
 	plt.imshow(img_erosion, 'gray')
+	plt.xlabel('Erosão')
 	plt.subplot(1, 6, 3)
 	plt.imshow(img_dilation, 'gray')
+	plt.xlabel('Dilatação')
 	plt.subplot(1, 6, 4)
 	plt.imshow(img_abertura, 'gray')
+	plt.xlabel('Abertura')
 	plt.subplot(1, 6, 5)
 	plt.imshow(img_fechamento, 'gray')
+	plt.xlabel('Fechamento')
 	plt.subplot(1, 6, 6)
 	plt.imshow(img_top_hat, 'gray')
+	plt.xlabel('Transformada Top-Hat')
 	plt.show()
 
 if __name__ == "__main__":
